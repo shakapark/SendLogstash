@@ -1,0 +1,6 @@
+servers:
+- host: "logstash.com"
+  port: 9000
+  entries:
+  - ""
+  - ""
