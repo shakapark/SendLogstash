@@ -1,4 +1,4 @@
 FROM alpine
 ADD bin/main /home/
-ADD conf.yml /home/
-CMD ["/home/main"]
+COPY conf.yml /home/conf/conf.yml
+CMD ["/home/main --config.file=/home/conf/conf.yml"]
