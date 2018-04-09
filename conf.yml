@@ -2,5 +2,8 @@ servers:
 - host: "logstash.com"
   port: 9000
   entries:
-  - ""
-  - ""
+  - log1
+    - "champ1":"value1"
+    - "champ2":"value2"
+  - log2
+    - "champ1":"value1"

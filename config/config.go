@@ -15,9 +15,9 @@ type Config struct {
 }
 
 type Server struct {
-	Host     string   `yaml:"host"`
-	Port     int      `yaml:"port"`
-	Entries []string `yaml:"entries"`
+	Host     string                `yaml:"host"`
+	Port     int                   `yaml:"port"`
+	Entries map[string][]string    `yaml:"entries"`
 	XXX     map[string]interface{} `yaml:",inline"`
 }
 
