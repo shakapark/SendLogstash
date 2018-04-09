@@ -43,7 +43,7 @@ func main(){
 
 			mapStr := make(map[string]interface{})
 			for _, logs := range entry {
-				t := strings.Split(logs, ",")
+				t := strings.Split(logs, ":")
 				mapStr[t[0]] = t[1]
 			}
 			ctx := log.WithFields(logrus.Fields(mapStr))
