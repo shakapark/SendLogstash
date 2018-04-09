@@ -46,8 +46,7 @@ func main(){
 				t := strings.Split(logs, ":")
 				mapStr[t[0]] = t[1]
 			}
-			ctx := log.WithFields(logrus.Fields(mapStr))
-			ctx.Info("Hello World!")
+			log.WithFields(logrus.Fields(mapStr)).Info("Hello World!")
 		}
 		fmt.Println("Stop Connection")
 	}
