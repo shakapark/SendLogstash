@@ -35,7 +35,7 @@ func main(){
                 	log.Warnln(err)
 			break
         	}
-		fmt.Println("New Server : ", server.Host, ":", strconv.Itoa(server.Port))
+		fmt.Println("New Server : ", server.Host+":"+strconv.Itoa(server.Port))
 
                 for entryName, entry := range server.Entries {
 	                hook := logrustash.New(conn, logrustash.DefaultFormatter(logrus.Fields{"entry": entryName}))
