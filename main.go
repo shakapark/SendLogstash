@@ -28,7 +28,7 @@ func main(){
 	fmt.Println("Starting Sender")
 
 	log := logrus.New()
-	logrus.SetFormatter(&logrus.JSONFormatter{})
+	log.Formatter = &logrus.JSONFormatter{}
 	for _, server := range sc.C.Servers {
 		fmt.Println("New Server : ", server.Host+":"+strconv.Itoa(server.Port))
 
@@ -39,7 +39,7 @@ func main(){
         	                break
 	                }
 
-			log.Hooks.Add(hook)
+			log.AddHook(hook)
 
 			mapStr := make(map[string]interface{})
 			for _, logs := range entry {
