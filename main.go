@@ -32,9 +32,9 @@ func main(){
 		fmt.Println("New Server : ", server.Host+":"+strconv.Itoa(server.Port))
 
                 for entryName, entry := range server.Entries {
-	                hook, err := logrustash.NewHook("tcp", server.Host+":"+strconv.Itoa(server.Port), entryName,)
+	                hook, err := logrustash.NewHook("tcp", server.Host+":"+strconv.Itoa(server.Port), entryName)
                 	if err != nil {
-                	        log.Warnln(err)
+                	        fmt.Println(err)
         	                break
 	                }
 
