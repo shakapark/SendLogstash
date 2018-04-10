@@ -28,6 +28,7 @@ func main(){
 	fmt.Println("Starting Sender")
 
 	log := logrus.New()
+	logrus.SetFormatter(&logrus.JSONFormatter{})
 	for _, server := range sc.C.Servers {
 		fmt.Println("New Server : ", server.Host+":"+strconv.Itoa(server.Port))
 
