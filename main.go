@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"net"
 	"os"
 	"strconv"
 	"strings"
@@ -30,16 +29,16 @@ func main(){
 
 	log := logrus.New()
 	for _, server := range sc.C.Servers {
-		conn, err := net.Dial("tcp", server.Host+":"+strconv.Itoa(server.Port))
-		if err != nil {
-                	log.Warnln(err)
-			break
-        	}
 		fmt.Println("New Server : ", server.Host+":"+strconv.Itoa(server.Port))
 
                 for entryName, entry := range server.Entries {
-	                hook := logrustash.New(conn, logrustash.DefaultFormatter(logrus.Fields{"entry": entryName}))
-                	log.Hooks.Add(hook)
+	                hook, err := logrustash.NewHook("tcp", server.Host+":"+strconv.Itoa(server.Port), entryName,)
+                	if err != nil {
+                	        log.Warnln(err)
+        	                break
+	                }
+
+			log.Hooks.Add(hook)
 
 			mapStr := make(map[string]interface{})
 			for _, logs := range entry {
